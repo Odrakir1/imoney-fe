@@ -1,0 +1,41 @@
+.brand-color {
+  background: "#002366"
+}
+
+.logo{
+  text-transform: uppercase;
+}
+
+.navigation {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 0;
+}
+
+.navigation li {
+  display: inline;
+  margin: 0;
+}
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.navigation>li, a {
+  color: "white"; 
+  text-decoration: "none";
+  padding: "10px"
+}
