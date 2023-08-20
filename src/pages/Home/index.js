@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Header from '../../components/Header';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import "./styles.css"
-import {color} from "../../common/styles"
+import { color } from "../../common/styles"
 
 function Home() {
   const [fields, setFields] = useState([{ label: '', value: '' }]);
+  const [totalExpenses, setTotalExpenses] = useState(0);
 
   const handleAddField = () => {
     const newField = { label: '', value: '' };
@@ -34,6 +37,12 @@ function Home() {
       style: 'currency',
       currency: 'BRL',
     });
+  };
+
+  const recalculateTotalExpenses = () => {
+    const total = fields
+      .reduce((acc, field) => acc + parseFloat(field.value || 0), 0);
+    setTotalExpenses(total);
   };
 
   return (
@@ -64,11 +73,22 @@ function Home() {
             </Button>
           </div>
         ))}
-        <div className="add-button-container">
-          <Button variant="contained" style={color.backgroundBrandColor} onClick={handleAddField}>
-            Adicionar despesa
-          </Button>
-        </div>
+        <Box display="flex" justifyContent="space-between"
+          alignItems="center" flexDirection="row" gap={16}>
+          <div className="add-button-container">
+            <Button variant="contained" style={color.backgroundBrandColor} onClick={handleAddField}>
+              Adicionar despesa
+            </Button>
+          </div>
+          <div className="add-button-container">
+            <Button variant="contained" style={color.backgroundBrandColor} onClick={recalculateTotalExpenses}>
+              Calcular despesas
+            </Button>
+          </div>
+        </Box>
+        <Box display="flex" justifyContent="space-between" alignItems="center" marginTop={5}>
+            <p>Total despesas: {formatCurrency(totalExpenses)}</p>
+        </Box>
       </div>
     </div>
   );
