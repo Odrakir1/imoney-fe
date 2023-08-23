@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 import "./styles.css"
 import { color } from "../../common/styles"
 
 function Home() {
-  const [fields, setFields] = useState([{ label: '', value: '' }]);
+  const [fields, setFields] = useState([{ label: "", value: "" }]);
   const [totalExpenses, setTotalExpenses] = useState(0);
 
   const handleAddField = () => {
-    const newField = { label: '', value: '' };
+    const newField = { label: "", value: "" };
     setFields([...fields, newField]);
   };
 
@@ -22,8 +22,8 @@ function Home() {
 
   const handleFieldChange = (index, fieldKey, fieldValue) => {
     const updatedFields = [...fields];
-    if (fieldKey === 'value') {
-      fieldValue = fieldValue.replace(/[^\d]/g, '');
+    if (fieldKey === "value") {
+      fieldValue = fieldValue.replace(/[^\d]/g, "");
       fieldValue = (parseFloat(fieldValue) / 100).toFixed(2);
     }
     updatedFields[index][fieldKey] = fieldValue;
@@ -31,9 +31,9 @@ function Home() {
   };
 
   const formatCurrency = (value) => {
-    return parseFloat(value).toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
+    return parseFloat(value).toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
     });
   };
 
@@ -52,18 +52,18 @@ function Home() {
               label="Despesa"
               variant="outlined"
               size="small"
-              style={{ marginRight: '10px' }}
+              style={{ marginRight: "10px" }}
               value={field.label}
-              onChange={(e) => handleFieldChange(index, 'label', e.target.value)}
+              onChange={(e) => handleFieldChange(index, "label", e.target.value)}
             />
             <TextField
               label="R$"
               variant="outlined"
               size="small"
-              style={{ marginRight: '10px' }}
+              style={{ marginRight: "10px" }}
               value={formatCurrency(field.value || 0)}
-              onChange={(e) => handleFieldChange(index, 'value', e.target.value)}
-              onBlur={(e) => handleFieldChange(index, 'value', e.target.value)}
+              onChange={(e) => handleFieldChange(index, "value", e.target.value)}
+              onBlur={(e) => handleFieldChange(index, "value", e.target.value)}
             />
             <Button variant="contained" style={color.backgroundBrandColor} onClick={() => handleRemoveField(index)}>
               Remover

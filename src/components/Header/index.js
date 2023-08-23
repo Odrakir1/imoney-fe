@@ -1,8 +1,9 @@
-import Button from '@mui/material/Button';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import './styles.css'
+import Button from "@mui/material/Button";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { Link } from "react-router-dom";
+import "./styles.css"
 import {color} from "../../common/styles"
 
 function Header(props) {
@@ -16,13 +17,13 @@ function Header(props) {
                 <nav className="navbar">
                     <ul className="navigation">
                         <li>
-                            <a href="#">Home</a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <a href="#">Meu Perfil</a>
+                            <Link to="/">Meu Perfil</Link>
                         </li>
                         <li>
-                            <a href="#">Relatório</a>
+                            <Link to="/reports">Relatório</Link>
                         </li>
                     </ul>
                 </nav>
