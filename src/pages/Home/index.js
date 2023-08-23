@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import Header from '../../components/Header';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import "./styles.css"
 import { color } from "../../common/styles"
 
@@ -47,7 +45,6 @@ function Home() {
 
   return (
     <div className="app">
-      <Header></Header>
       <div className="fields-container">
         {fields.map((field, index) => (
           <div key={index} className="field">
